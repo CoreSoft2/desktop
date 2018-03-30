@@ -59,13 +59,14 @@ var Header = React.createClass({
         }
 
         remote.getCurrentWindow().hide();
-
+        event.preventDefault();
     },
     handleMinimize: function () {
         if(Settings.get('minToTaskbar')) {
             remote.getCurrentWindow().minimize();
         } else {
             remote.getCurrentWindow().hide();
+            event.preventDefault();
         }
     },
     handleFullscreen: function () {},

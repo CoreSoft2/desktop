@@ -14,7 +14,7 @@ import helpers from './VPNHelpers';
 import log from '../stores/LogStore';
 import vpnActions from '../actions/VPNActions';
 
-let GENCONFIG_ENDPOINT = process.env.GENCONFIG_ENDPOINT || 'https://vpn.ht/openvpn-desktop';
+let GENCONFIG_ENDPOINT = process.env.GENCONFIG_ENDPOINT || 'https://www.pivotsecurity.com/openvpn-desktop';
 
 var currentOSLib;
 var openvpn;

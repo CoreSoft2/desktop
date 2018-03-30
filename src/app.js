@@ -82,7 +82,7 @@ ipcRenderer.on('application:vpn-check-sleep', () => {
             vpnActions.connect({
                 username: Credentials.get().username,
                 password: Credentials.get().password,
-                server: Settings.get('server') || 'hub.vpn.ht'
+                server: Settings.get('server') || 'vpn.pivotsecurity.com'
             });
         } else {
             log.info('No user/pass saved in the hash. Disconnecting.');

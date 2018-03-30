@@ -39,7 +39,7 @@ var MyipUtil = {
     _getRemoteServers: function() {
 
         var options = [{
-            value: 'hub.vpn.ht',
+            value: 'vpm.pivotsecurity.com',
             label: t('Nearest Server (Random)'),
             country: 'blank'
         }];

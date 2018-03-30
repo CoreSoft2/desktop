@@ -6,7 +6,7 @@ class ServerStore {
 
         this.bindActions(ServerActions);
         this.servers = [{
-            value: 'hub.vpn.ht',
+            value: 'vpn.pivotsecurity.com',
             label: 'Nearest Server (Random)',
             country: 'blank'
         }];

@@ -24,7 +24,7 @@ var DashboardConnect = React.createClass({
             username: Credentials.get().username,
             password: Credentials.get().password,
             saveCredentials: Settings.get('saveCredentials'),
-            server: Settings.get('server') || 'hub.vpn.ht',
+            server: Settings.get('server') || 'vpn.pivotsecurity.com',
             servers: serverStore.getState().servers
         };
     },

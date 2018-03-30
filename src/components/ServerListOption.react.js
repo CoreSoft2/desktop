@@ -33,7 +33,7 @@ var Option = React.createClass({
             verticalAlign: 'middle',
         };
         var flag;
-        if (obj.value == 'hub.vpn.ht') {
+        if (obj.value == 'vpn.pivotsecurity.com') {
             flag = "flag-icon";
         } else {
             if (obj && obj.country) {

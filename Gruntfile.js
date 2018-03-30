@@ -50,7 +50,7 @@ module.exports = function(grunt) {
                     platform: 'win32',
                     arch: 'ia32',
                     asar: true,
-                    icon: 'util/vpnht.ico'
+                    icon: 'util/pivot.ico'
                 }
             },
             osx: {
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
                     src: [BASENAME + '.exe']
                 }],
                 options: {
-                    icon: 'util/vpnht.ico',
+                    icon: 'util/pivot.ico',
                     'file-version': packagejson.version,
                     'product-version': packagejson.version,
                     'version-string': {
@@ -111,7 +111,7 @@ module.exports = function(grunt) {
                 authors: 'Pivot Security Limited',
                 loadingGif: 'util/loading.gif',
                 setupIcon: 'util/setup.ico',
-                iconUrl: 'https://raw.githubusercontent.com/vpnht/desktop/master/util/vpnht.ico',
+                iconUrl: 'https://www.pivotsecurity.com/pivot.ico',
                 description: APPNAME,
                 title: APPNAME,
                 exe: BASENAME + '.exe',

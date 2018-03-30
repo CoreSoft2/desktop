@@ -61,6 +61,7 @@ var MenuTemplate = function() {
             accelerator: util.CommandOrCtrl() + '+W',
             click: function() {
                 remote.getCurrentWindow().hide();
+                event.preventDefault();
             }
         }, {
             type: 'separator'

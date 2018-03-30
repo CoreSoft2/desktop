@@ -232,6 +232,7 @@ app.on('ready', function() {
                         app.dock.hide();
                     }
                     mainWindow.hide();
+                    event.preventDefault();
                 } else {
                     if (process.platform == 'darwin') {
                         app.dock.show();
