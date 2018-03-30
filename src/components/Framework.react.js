@@ -46,7 +46,7 @@ var Client = React.createClass({
         metrics.track('Opened Issue Reporter', {
             from: 'app'
         });
-        shell.openExternal('https://github.com/vpnht/desktop/issues/new');
+        shell.openExternal('https://www.pivotsecurity.com/contact');
     },
 
     handleMouseEnterReportIssue: function() {

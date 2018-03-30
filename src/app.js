@@ -59,7 +59,7 @@ ipcRenderer.on('application:vpn-connect', () => {
         vpnActions.connect({
             username: Credentials.get().username,
             password: Credentials.get().password,
-            server: Settings.get('server') || 'hub.vpn.ht'
+            server: Settings.get('server') || 'vpn.pivotsecurity.com'
         });
     } else {
         log.error('No user/pass saved in the hash.\n\nTIPS: Try to connect manually first to save your data.')

@@ -95,7 +95,7 @@ module.exports = {
     },
     enableStartOnBoot: function(hidden) {
         return new Promise((resolve) => {
-            regKey.set('VPNht', Winreg.REG_SZ, "\"" + remote.app.getPath('exe') + (hidden ? ' --hide' : '') + "\"", function() {
+            regKey.set('PivotSecurity', Winreg.REG_SZ, "\"" + remote.app.getPath('exe') + (hidden ? ' --hide' : '') + "\"", function() {
                 resolve();
             });
         });
@@ -103,7 +103,7 @@ module.exports = {
 
     disableStartOnBoot: function() {
         return new Promise((resolve) => {
-            regKey.remove('VPNht', function() {
+            regKey.remove('PivotSecurity', function() {
                 resolve();
             });
         });
@@ -111,7 +111,7 @@ module.exports = {
 
     statusStartOnBoot: function() {
         return new Promise((resolve) => {
-            regKey.get('VPNht', function(error, item) {
+            regKey.get('PivotSecurity', function(error, item) {
                 resolve(item != null);
             });
         });

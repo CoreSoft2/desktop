@@ -1,1 +1,2 @@
-This directory will contain the configurations files for VPN.ht
+This directory will contain the configurations files for Pivot Security
+

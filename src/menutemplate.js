@@ -10,14 +10,14 @@ var app = remote.app;
 // main.js
 var MenuTemplate = function() {
     return [{
-        label: 'VPN.ht',
+        label: 'PivotSecurity',
         submenu: [{
             label: t('Manage Account'),
             click: function() {
-                metrics.track('Opened Billing on VPN.ht', {
+                metrics.track('Opened Billing on PivotSecurity', {
                     from: 'menu'
                 });
-                shell.openExternal('https://billing.vpn.ht/clientarea.php?action=services');
+                shell.openExternal('https://www.pivotsecurity.com/profile');
             }
         }, {
             type: 'separator'
@@ -31,7 +31,7 @@ var MenuTemplate = function() {
     }, {
         label: t('View'),
         submenu: [{
-            label: t('Hide') + ' VPN.ht',
+            label: t('Hide') + ' PivotSecurity',
             accelerator: util.CommandOrCtrl() + '+H',
             selector: 'hide:'
         }, {
@@ -73,10 +73,10 @@ var MenuTemplate = function() {
         submenu: [{
             label: t('Support'),
             click: function() {
-                metrics.track('Opened Support on VPN.ht', {
+                metrics.track('Opened Support on PivotSecurity', {
                     from: 'menu'
                 });
-                shell.openExternal('https://billing.vpn.ht/knowledgebase.php');
+                shell.openExternal('https://www.pivotsecurity.com/contact');
             }
         }, {
             label: t('Report Issue or Suggest Feedback'),
@@ -84,7 +84,7 @@ var MenuTemplate = function() {
                 metrics.track('Opened Issue Reporter', {
                     from: 'menu'
                 });
-                shell.openExternal('https://github.com/vpnht/desktop/issues/new');
+                shell.openExternal('https://www.pivotsecurity.com/contact');
             }
         }, {
             type: 'separator'

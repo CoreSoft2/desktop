@@ -1,7 +1,6 @@
 #!/bin/sh -e
 # ******************************************************************************************************************
 # Upscript for updating DNS config
-# Created by: VPN.ht
 # Inspired by: TunnelBear and TunnelBlick
 # ******************************************************************************************************************
 
@@ -10,7 +9,7 @@
 readonly LOG_MESSAGE_COMMAND=$(basename "${0}")
 logMessage()
 {
-	echo "$(date '+%a %b %e %T %Y') VPN.ht $LOG_MESSAGE_COMMAND: "${@} >> /var/log/vpnht-script.up.log
+	echo "$(date '+%a %b %e %T %Y') Pivot Security $LOG_MESSAGE_COMMAND: "${@} >> /var/log/PivotSecurity-script.up.log
 	return
 }
 ##########################################################################################
@@ -148,28 +147,28 @@ updateSCUtil()
 	d.init
 	d.add ServiceID ${PSID}
 	d.add bAlsoUsingSetupKeys "${bAlsoUsingSetupKeys}"
-	set State:/Network/VPNht
+	set State:/Network/PivotSecurity
 
 	# Save old config for down script restore
 	d.init
-	d.add VPNhtNoSuchKey true
+	d.add PivotSecurityNoSuchKey true
 	get State:/Network/Service/${PSID}/DNS
-	set State:/Network/VPNht/OldDNS
+	set State:/Network/PivotSecurity/OldDNS
 
 	d.init
-	d.add VPNhtNoSuchKey true
+	d.add PivotSecurityNoSuchKey true
 	get Setup:/Network/Service/${PSID}/DNS
-	set State:/Network/VPNht/OldDNSSetup
+	set State:/Network/PivotSecurity/OldDNSSetup
 
 	d.init
-	d.add VPNhtNoSuchKey true
+	d.add PivotSecurityNoSuchKey true
 	get State:/Network/Global/DNS
-	set State:/Network/VPNht/OldGlobalDNS
+	set State:/Network/PivotSecurity/OldGlobalDNS
 
 	d.init
-	d.add VPNhtNoSuchKey true
+	d.add PivotSecurityNoSuchKey true
 	get Setup:/Network/Global/DNS
-	set State:/Network/VPNht/OldGlobalDNSSetup
+	set State:/Network/PivotSecurity/OldGlobalDNSSetup
 
 	# Update Global & Primary State
 	# No huge difference from init - but this will handle another DNS change if there's one.
@@ -262,7 +261,7 @@ logMessage "hello"
 logMessage "script version 0.2"
 
 if [ "$foreign_option_1" == "" ]; then
-  logMessage "VPNHT: Exiting nothing to do"
+  logMessage "PivotSecurity: Exiting nothing to do"
   exit 0
 fi
 
@@ -293,7 +292,7 @@ let nOptionIndex++
 done
 
 #cleanup script log everytime.
-rm -f /var/log/vpnht-script.up.log
+rm -f /var/log/PivotSecurity-script.up.log
 
 getPrimaryService
 getDNSConfig

@@ -6,8 +6,6 @@ var electron = require('electron');
 module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
     var target = grunt.option('target') || 'development';
-    var beta = grunt.option('beta') || false;
-    var alpha = grunt.option('alpha') || false;
     var env = process.env;
     env.NODE_PATH = '..:' + env.NODE_PATH;
     env.NODE_ENV = target;
@@ -21,14 +19,8 @@ module.exports = function(grunt) {
         return str.replace(/ /g, '\\ ').replace(/\(/g, '\\(').replace(/\)/g, '\\)');
     };
 
-    var BASENAME = 'VPN.ht';
+    var BASENAME = 'PivotSecurity';
     var APPNAME = BASENAME;
-
-    if (alpha) {
-        APPNAME += ' (Alpha)';
-    } else if (beta) {
-        APPNAME += ' (Beta)';
-    }
 
     var OSX_OUT = './dist';
     var OSX_OUT_X64 = OSX_OUT + '/' + APPNAME + '-darwin-x64';
@@ -37,7 +29,7 @@ module.exports = function(grunt) {
     var OSX_DIST_X64 = OSX_OUT + '/' + APPNAME + '-' + packagejson.version + '.pkg';
 
     grunt.initConfig({
-        IDENTITY: 'Developer ID Application: David Lemarier',
+        IDENTITY: 'Developer ID Application: Pivot Security',
         APPNAME: APPNAME,
         APPNAME_ESCAPED: clear(APPNAME),
         OSX_OUT: OSX_OUT,
@@ -70,7 +62,7 @@ module.exports = function(grunt) {
                     platform: 'darwin',
                     arch: 'x64',
                     asar: true,
-                    'app-bundle-id': 'ht.vpn.desktop',
+                    'app-bundle-id': 'com.PivotSecurity.desktop',
                     'app-version': packagejson.version
                 }
             }
@@ -100,13 +92,13 @@ module.exports = function(grunt) {
                     'file-version': packagejson.version,
                     'product-version': packagejson.version,
                     'version-string': {
-                        'CompanyName': 'VPN.ht Limited',
+                        'CompanyName': 'Pivot Security Limited',
                         'ProductVersion': packagejson.version,
                         'ProductName': APPNAME,
                         'FileDescription': APPNAME,
                         'InternalName': BASENAME + '.exe',
                         'OriginalFilename': BASENAME + '.exe',
-                        'LegalCopyright': 'Copyright 2015 VPN.ht Limited. All rights reserved.'
+                        'LegalCopyright': 'Copyright 2015 Pivot Security Limited. All rights reserved.'
                     }
                 }
             }
@@ -116,7 +108,7 @@ module.exports = function(grunt) {
             config: {
                 appDirectory: path.join(__dirname, 'dist/' + BASENAME + '-win32-ia32'),
                 outputDirectory: path.join(__dirname, 'dist'),
-                authors: 'VPN.ht Limited',
+                authors: 'Pivot Security Limited',
                 loadingGif: 'util/loading.gif',
                 setupIcon: 'util/setup.ico',
                 iconUrl: 'https://raw.githubusercontent.com/vpnht/desktop/master/util/vpnht.ico',
@@ -300,13 +292,13 @@ module.exports = function(grunt) {
         compress: {
             windows: {
                 options: {
-                    archive: './dist/' + BASENAME + '-' + packagejson.version + '-Windows-Alpha.zip',
+                    archive: './dist/' + BASENAME + '-' + packagejson.version + '-Windows.zip',
                     mode: 'zip'
                 },
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: './dist/VPN.ht-win32-ia32',
+                    cwd: './dist/PivotSecurity-win32-ia32',
                     src: '**/*'
                 }]
             },

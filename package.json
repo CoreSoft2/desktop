@@ -1,15 +1,15 @@
 {
-    "name": "VPN.ht",
-    "version": "0.0.3",
-    "author": "VPN.ht",
-    "description": "Simple VPN.ht Client.",
-    "homepage": "https://vpn.ht/",
+    "name": "PivotSecurity",
+    "version": "0.0.1",
+    "author": "Pivot Security",
+    "description": "Pivot Security Client.",
+    "homepage": "https://www.PivotSecurity.com/",
     "main": "browser.js",
     "repository": {
-        "type": "git",
-        "url": "git@github.com:vpnht/desktop.git"
+        "type": "",
+        "url": ""
     },
-    "bugs": "https://github.com/vpnht/desktop/issues",
+    "bugs": "",
     "scripts": {
         "start": "grunt",
         "release": "grunt release"

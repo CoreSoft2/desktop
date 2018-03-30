@@ -73,7 +73,7 @@ module.exports = {
         return process.platform === 'win32';
     },
     binsPath: function() {
-        return this.isWindows() ? path.join(this.home(), 'VPN.ht-bins') : path.join('/usr/local/bin');
+        return this.isWindows() ? path.join(this.home(), 'PivotSecurity-bins') : path.join('/usr/local/bin');
     },
     binsEnding: function() {
         return this.isWindows() ? '.exe' : '';

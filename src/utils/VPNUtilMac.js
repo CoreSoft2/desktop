@@ -64,7 +64,7 @@ module.exports = {
         return util.exec([
             'osascript',
             path.join(resources.resourceDir(), 'scripts/LoginItemAdd.scpt'),
-            'VPN.ht'
+            'PivotSecurity'
         ]);
     },
 
@@ -72,7 +72,7 @@ module.exports = {
         return util.exec([
             'osascript',
             path.join(resources.resourceDir(), 'scripts/LoginItemRemove.scpt'),
-            'VPN.ht'
+            'PivotSecurity'
         ]);
     },
 

@@ -1,1 +1,1 @@
-This directory will contain the log files for VPN.ht
+This directory will contain the log files

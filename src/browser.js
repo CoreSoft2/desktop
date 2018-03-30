@@ -16,7 +16,7 @@ if (process.env.NODE_ENV !== 'development') {
     process.env.BIN_PATH = path.join(__dirname, '/../bin');
     process.env.LOG_PATH = path.join(__dirname, '/../log');
     if (process.platform == 'darwin') {
-        process.env.CONFIG_PATH = path.join(process.env['HOME'], 'Library', 'Application\ Support', 'VPN.ht');
+        process.env.CONFIG_PATH = path.join(process.env['HOME'], 'Library', 'Application\ Support', 'PivotSecurity');
     } else {
         process.env.CONFIG_PATH = path.join(__dirname, '/../config');
     }
@@ -73,11 +73,11 @@ app.on('ready', function() {
     //DEBUG: mainWindow.webContents.openDevTools();
 
     var preventMultipleInstances = function() {
-        var socket = (process.platform === 'win32') ? '\\\\.\\pipe\\vpnht-sock' : path.join(os.tmpdir(), 'vpnht.sock');
+        var socket = (process.platform === 'win32') ? '\\\\.\\pipe\\pivot-sock' : path.join(os.tmpdir(), 'pivot.sock');
         var client = net.connect({
             path: socket
         }, function() {
-            var errorMessage = 'Another instance of VPN.ht is already running. Only one instance of the app can be open at a time.'
+            var errorMessage = 'Another instance of PivotSecurity is already running. Only one instance of the app can be open at a time.'
             dialog.showMessageBox(mainWindow, {
                 'type': 'error',
                 message: errorMessage,
@@ -165,7 +165,7 @@ app.on('ready', function() {
     mainWindow.webContents.on('did-finish-load', function() {
 
         console.log('ready')
-        mainWindow.setTitle('VPN.ht');
+        mainWindow.setTitle('PivotSecurity');
 
         if (!args.hide) {
             mainWindow.show();
