@@ -7,7 +7,6 @@ var defaultSettings = {
     saveCredentials: false,
     disableSmartdns: false,
     autoPath: true,
-    encryption: 128,
     minToTaskbar: true
 };
 

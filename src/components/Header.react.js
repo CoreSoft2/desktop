@@ -14,17 +14,19 @@ var MenuItem = remote.menuItem;
 
 var Header = React.createClass({
     mixins: [Router.Navigation],
+    
     getInitialState: function () {
         return {
             fullscreen: false,
             updateAvailable: false,
             username: accountStore.getState().username,
-            connected: accountStore.getState().connected
+            connected: accountStore.getState().connected,
+            mounted : false
         };
     },
     componentDidMount: function () {
         document.addEventListener('keyup', this.handleDocumentKeyUp, false);
-
+        this.state.mounted = true;
         accountStore.listen(this.update);
 
         ipcRenderer.on('application:update-available', () => {
@@ -34,12 +36,13 @@ var Header = React.createClass({
         });
     },
     componentWillUnmount: function () {
+        this.state.mounted = false;
         document.removeEventListener('keyup', this.handleDocumentKeyUp, false);
         accountStore.unlisten(this.update);
     },
     update: function () {
         let accountState = accountStore.getState();
-        if (this.isMounted()) {
+        if (this.state.mounted) {
                 this.setState({
                     username: accountState.username,
                     connected: accountState.connected

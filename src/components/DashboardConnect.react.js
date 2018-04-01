@@ -24,23 +24,30 @@ var DashboardConnect = React.createClass({
             username: Credentials.get().username,
             password: Credentials.get().password,
             saveCredentials: Settings.get('saveCredentials'),
-            server: Settings.get('server') || 'vpn.pivotsecurity.com',
-            servers: serverStore.getState().servers
+            server: Settings.get('server') || 'www.pivotsecurity.com',
+            servers: serverStore.getState().servers,
+            _mounted: false
         };
     },
 
     componentDidMount: function () {
         accountStore.listen(this.update);
         serverStore.listen(this.updateServers);
+        this.setState({
+            _mounted: true
+        });
     },
 
     componentWillUnmount: function () {
         accountStore.unlisten(this.update);
         serverStore.unlisten(this.updateServers);
+        this.setState({
+            _mounted: false
+        });
     },
 
     update: function () {
-        if (this.isMounted()) {
+        if (this.state._mounted) {
             this.setState({
                 connecting: accountStore.getState().connecting,
                 appReady: accountStore.getState().appReady
@@ -49,7 +56,7 @@ var DashboardConnect = React.createClass({
     },
 
     updateServers: function () {
-        if (this.isMounted()) {
+        if (this.state._mounted) {
             this.setState({
                 servers: serverStore.getState().servers
             });
@@ -126,7 +133,7 @@ var DashboardConnect = React.createClass({
     },
 
     render: function () {
-        var currentStatus = t('Loading...');
+        var currentStatus = t('Loading... Dashboard->Render');
         if (this.state.appReady) {
             if (this.state.connecting) {
                     currentStatus = t('Connecting...');
@@ -145,7 +152,7 @@ var DashboardConnect = React.createClass({
                         <p>{currentStatus}</p>
                     </div>
                     <button disabled={!this.state.appReady} className="right" onClick={this.handleConnect}>
-                        <p>{this.state.connecting ? t('cancel') : t('connect to vpn')}</p>
+                        <p>{this.state.connecting ? t('cancel') : t('connect to Pivot Security')}</p>
                     </button>
                 </section>
 

@@ -5,7 +5,7 @@ import {t} from './localizationUtil';
 import log from '../stores/LogStore';
 import ServerActions from '../actions/ServerActions';
 
-let MYIP_ENDPOINT = process.env.MYIP_ENDPOINT || 'https://myip.ht';
+let MYIP_ENDPOINT = process.env.MYIP_ENDPOINT || 'https://www.pivotsecurity.com/servers';
 
 var MyipUtil = {
     init: function() {},
@@ -26,7 +26,8 @@ var MyipUtil = {
 
     _servers: function(callback) {
         return new Promise((resolve, reject) => {
-            request.get(`${MYIP_ENDPOINT}/servers-geo.json`, (error, response, body) => {
+            //request.get(`${MYIP_ENDPOINT}/admin-ajax.php?type=servers`, (error, response, body) => {
+            request.get(`https://pivotcloudsolutions.com/servers.json`, (error, response, body) => {
                 if (error) {
                     reject(error);
                 } else {
@@ -39,8 +40,8 @@ var MyipUtil = {
     _getRemoteServers: function() {
 
         var options = [{
-            value: 'vpm.pivotsecurity.com',
-            label: t('Nearest Server (Random)'),
+            value: 'www.pivotsecurity.com',
+            label: t('Nearest Server (Based on Location)'),
             country: 'blank'
         }];
         var serverName;

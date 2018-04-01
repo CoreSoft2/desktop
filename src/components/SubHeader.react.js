@@ -7,20 +7,23 @@ var SubHeader = React.createClass({
 
     getInitialState: function() {
         return {
-            connected: accountStore.getState().connected
+            connected: accountStore.getState().connected,
+            mounted : false
         };
     },
 
     componentDidMount: function() {
+        this.state.mounted=true;
         accountStore.listen(this.update);
     },
 
     componentWillUnmount: function() {
+        this.state.mounted = false;
         accountStore.unlisten(this.update);
     },
 
     update: function() {
-        if (this.isMounted()) {
+        if (this.state.mounted) {
             this.setState({
                 connected: accountStore.getState().connected
             });

@@ -11,13 +11,16 @@ var _prevBottom = 0;
 
 var DashboardLogs = React.createClass({
 
+    
     getInitialState: function() {
         return {
-            logs: []
+            logs: [],
+            mounted: false
         };
     },
 
     componentDidMount: function() {
+        this.state.mounted=true;
         this.update();
         this.scrollToBottom();
         LogStore.on(LogStore.SERVER_LOGS_EVENT, this.update);
@@ -28,6 +31,7 @@ var DashboardLogs = React.createClass({
     },
 
     componentWillUnmount: function() {
+        this.state.mounted=false;
         LogStore.removeListener(LogStore.SERVER_LOGS_EVENT, this.update);
     },
 
@@ -37,7 +41,7 @@ var DashboardLogs = React.createClass({
     },
 
     update: function() {
-        if (this.isMounted()) {
+        if (this.state.mounted) {
             this.setState({
                 logs: LogStore.logs()
             });

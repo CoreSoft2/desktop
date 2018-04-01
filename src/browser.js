@@ -165,7 +165,7 @@ app.on('ready', function() {
     mainWindow.webContents.on('did-finish-load', function() {
 
         console.log('ready')
-        mainWindow.setTitle('PivotSecurity');
+        mainWindow.setTitle('Pivot Security');
 
         if (!args.hide) {
             mainWindow.show();

@@ -23,7 +23,7 @@ var SingleValue = React.createClass({
         }
 
         var flag = false;
-        if (obj.value == 'vpn.pivotsecurity.com') {
+        if (obj.value == 'www.pivotsecurity.com') {
             flag = "flag-icon";
         } else {
             if (obj && obj.country) {

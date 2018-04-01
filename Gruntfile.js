@@ -5,7 +5,8 @@ var electron = require('electron');
 
 module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
-    var target = grunt.option('target') || 'development';
+    //var target = grunt.option('target') || 'development';
+    var target = 'development';
     var env = process.env;
     env.NODE_PATH = '..:' + env.NODE_PATH;
     env.NODE_ENV = target;

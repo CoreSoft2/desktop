@@ -9,24 +9,28 @@ import accountStore from '../stores/AccountStore';
 
 var DashboardConnectionDetails = React.createClass({
 
+  
   getInitialState: function () {
     return {
       bytecount: accountStore.getState().bytecount,
       myip: accountStore.getState().myip,
-      connectionTime: accountStore.getState().connectionTime
+      connectionTime: accountStore.getState().connectionTime,
+      mounted:false
     };
   },
 
   componentDidMount: function () {
+      this.state.mounted=true;
     accountStore.listen(this.update);
   },
 
   componentWillUnmount: function () {
+    this.state.mounted=false;
     accountStore.unlisten(this.update);
   },
 
   update: function () {
-    if (this.isMounted()) {
+    if (this.state.mounted) {
         this.setState({
           bytecount: accountStore.getState().bytecount,
           myip: accountStore.getState().myip,
@@ -44,8 +48,8 @@ var DashboardConnectionDetails = React.createClass({
     var download = util.bytesToSize(this.state.bytecount[0]);
     var upload = util.bytesToSize(this.state.bytecount[1]);
 
-    var location = t('Loading...');
-    var myip = this.state.myip.ip || t('Loading...');
+    var location = t('Loading... DCD->localtion');
+    var myip = this.state.myip.ip || t('Loading... DCD->myip');
 
     if (this.state.myip.advanced) {
         var city = this.state.myip.advanced.city || false;

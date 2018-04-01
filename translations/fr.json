@@ -34,9 +34,9 @@
     "You should select a server": "Un serveur doit être sélectionné",
     "Loading...": "Chargement...",
     "Connecting...": "Connexion...",
-    "VPN connection status": "Statut de la connexion VPN",
+    "VPN connection status": "Statut de la connexion VPNPiovt Security
     "cancel": "annuler",
-    "connect to vpn": "se connecter au vpn",
+    "connect to Piovt Security": "se connecter au Piovt Security",
     "Login": "Identifiants",
     "Username": "Nom d'utilisateur",
     "Password": "Mot de passe",
@@ -77,7 +77,6 @@
     "Launch on operating system startup hidden": "Lancer minimisé au démarrage du système",
     "Disable SmartDNS": "Désactiver les DNS intelligents",
     "Minimize to taskbar": "Réduire dans la barre des tâches",
-    "Encryption": "Chiffrement",
     "Auto Path": "Connectivité automatique",
     "Enabled": "Activé",
     "Disabled": "Désactivé",
@@ -91,7 +90,7 @@
     "not connected!": "non connecté !",
     "Your internet traffic is unencrypted and your online identity is exposed.": "Le trafic Internet n'est pas chiffré, votre identité en ligne est vulnérable.",
 
-    "Nearest Server (Random)": "Le plus proche (au hasard)",
+    "Nearest Server (Based on Location)": "Le plus proche (Basé sur Lieu)",
 
     "Plug and play!": "Plug & play!",
     "You can start using our service, and start surfing in privacy, as soon as you create an account.": "Vous pouvez commencer à utiliser nos services et surfer en tout anonymat dès que votre compte est créé.",

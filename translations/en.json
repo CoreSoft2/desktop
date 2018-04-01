@@ -34,9 +34,9 @@
     "You should select a server": "You should select a server",
     "Loading...": "Loading...",
     "Connecting...": "Connecting...",
-    "VPN connection status": "VPN connection status",
+    "VPN connection status": "Piovt Security connection status",
     "cancel": "cancel",
-    "connect to vpn": "connect to vpn",
+    "connect to Piovt Security": "connect to Piovt Security",
     "Login": "Login",
     "Username": "Username",
     "Password": "Password",
@@ -77,7 +77,6 @@
     "Launch on operating system startup hidden": "Launch on operating system startup hidden",
     "Disable SmartDNS": "Disable SmartDNS",
     "Minimize to taskbar": "Minimize to taskbar",
-    "Encryption": "Encryption",
     "Auto Path": "Auto Path",
     "Enabled": "Enabled",
     "Disabled": "Disabled",
@@ -91,7 +90,7 @@
     "not connected!": "not connected!",
     "Your internet traffic is unencrypted and your online identity is exposed.": "Your internet traffic is unencrypted and your online identity is exposed.",
 
-    "Nearest Server (Random)": "Nearest Server (Random)",
+    "Nearest Server (Based on Location)": "Nearest Server (Based on Location)",
 
     "Plug and play!": "Plug and play!",
     "You can start using our service, and start surfing in privacy, as soon as you create an account.": "You can start using our service, and start surfing in privacy, as soon as you create an account.",

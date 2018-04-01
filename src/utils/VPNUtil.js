@@ -14,7 +14,9 @@ import helpers from './VPNHelpers';
 import log from '../stores/LogStore';
 import vpnActions from '../actions/VPNActions';
 
-let GENCONFIG_ENDPOINT = process.env.GENCONFIG_ENDPOINT || 'https://www.pivotsecurity.com/openvpn-desktop';
+//let GENCONFIG_ENDPOINT = process.env.GENCONFIG_ENDPOINT || 'https://www.pivotsecurity.com/wp-admin.php';
+
+let GENCONFIG_ENDPOINT = 'https://www.pivotsecurity.com/wp-admin.php';
 
 var currentOSLib;
 var openvpn;
@@ -38,7 +40,6 @@ module.exports = assign(currentOSLib, {
 
             let server = _args.server;
 
-            let encryption = Settings.get('encryption');
             let autoPath = Settings.get('autoPath');
             let port = Settings.get('customPort');
             let smartdns = true;
@@ -49,21 +50,39 @@ module.exports = assign(currentOSLib, {
                 smartdns = 'disable';
             }
 
-            //        if (onlySmartdns) {
-            //            smartdns = 'only';
-            //        }
-
             if (autoPath) {
                 port = 'autoPath';
             }
 
-            request.get(`${GENCONFIG_ENDPOINT}/${server}/${managementPort}/${port}/${encryption}/${smartdns}/${platform}`, (error, response, body) => {
-
+           /* request.get(`${GENCONFIG_ENDPOINT}/${server}/${managementPort}/${port}/${smartdns}/${platform}`, (error, response, body) => {
                 let configPath = path.resolve(process.env.CONFIG_PATH, 'config.ovpn');
                 fs.writeFileSync(configPath, body);
                 resolve(configPath);
-
-            });
+            });*/
+            
+            fetch('${GENCONFIG_ENDPOINT}', {
+                  method: 'POST',
+                  headers: {
+                    'Accept': 'application/text',
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    os: '${platform}',
+                    action: 'download',
+                    
+                  })
+                })
+                .then((response) => {
+                   let configPath = path.resolve(process.env.CONFIG_PATH, 'config.ovpn');
+                    fs.writeFileSync(configPath, response);
+                    resolve(configPath);
+                })
+                .then((responseData) => { // responseData = undefined
+                    console.log(responseData);
+                })
+              .catch(function(err) {
+                  console.log(err);
+              });
 
         });
     },

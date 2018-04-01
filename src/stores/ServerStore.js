@@ -6,8 +6,8 @@ class ServerStore {
 
         this.bindActions(ServerActions);
         this.servers = [{
-            value: 'vpn.pivotsecurity.com',
-            label: 'Nearest Server (Random)',
+            value: 'www.pivotsecurity.com',
+            label: 'Nearest Server (Based on Location)',
             country: 'blank'
         }];
     }

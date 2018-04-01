@@ -94,7 +94,7 @@ class VPNActions {
                 this.connect({
                     username: Credentials.get().username,
                     password: Credentials.get().password,
-                    server: Settings.get('server') || 'vpn.pivotsecurity.com'
+                    server: Settings.get('server') || 'www.pivotsecurity.com'
                 });
             }
         };

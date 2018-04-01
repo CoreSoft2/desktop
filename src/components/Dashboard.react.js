@@ -9,23 +9,29 @@ import accountStore from '../stores/AccountStore';
 
 var Preferences = React.createClass({
     mixins: [Router.Navigation],
-
     getInitialState: function() {
         return {
-            connected: accountStore.getState().connected
+            connected: accountStore.getState().connected,
+            mounted:false
         };
     },
 
     componentDidMount: function() {
+        this.setState({
+            mounted: true
+        });
         accountStore.listen(this.update);
     },
 
     componentWillUnmount: function() {
+        this.setState({
+            mounted: false
+        });
         accountStore.unlisten(this.update);
     },
 
     update: function() {
-        if (this.isMounted()) {
+        if (this.state.mounted) {
             this.setState({
                 connected: accountStore.getState().connected
             });
