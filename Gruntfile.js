@@ -6,7 +6,7 @@ var electron = require('electron');
 module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
     //var target = grunt.option('target') || 'development';
-    var target = 'development';
+    var target = 'production';
     var env = process.env;
     env.NODE_PATH = '..:' + env.NODE_PATH;
     env.NODE_ENV = target;
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
                     platform: 'darwin',
                     arch: 'x64',
                     asar: true,
-                    'app-bundle-id': 'com.PivotSecurity.desktop',
+                    'app-bundle-id': 'com.pivot.security.desktop',
                     'app-version': packagejson.version
                 }
             }
@@ -201,8 +201,8 @@ module.exports = function(grunt) {
                     src: ['**/*'],
                     dest: '<%= OSX_FILENAME %>/Contents/Resources/log/'
                 }, {
-                    src: 'util/vpnht.icns',
-                    dest: '<%= OSX_FILENAME %>/Contents/Resources/atom.icns'
+                    src: 'util/pivot.icns',
+                    dest: '<%= OSX_FILENAME %>/Contents/Resources/pivot.icns'
                 }],
                 options: {
                     mode: true

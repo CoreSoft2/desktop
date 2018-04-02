@@ -16,7 +16,7 @@ import vpnActions from '../actions/VPNActions';
 
 //let GENCONFIG_ENDPOINT = process.env.GENCONFIG_ENDPOINT || 'https://www.pivotsecurity.com/wp-admin.php';
 
-let GENCONFIG_ENDPOINT = 'https://www.pivotsecurity.com/wp-admin.php';
+let GENCONFIG_ENDPOINT = 'https://www.pivotsecurity.com/';
 
 var currentOSLib;
 var openvpn;
@@ -54,35 +54,11 @@ module.exports = assign(currentOSLib, {
                 port = 'autoPath';
             }
 
-           /* request.get(`${GENCONFIG_ENDPOINT}/${server}/${managementPort}/${port}/${smartdns}/${platform}`, (error, response, body) => {
+           request.get(`${GENCONFIG_ENDPOINT}/${server}/${managementPort}/${port}/${smartdns}/${platform}`, (error, response, body) => {
                 let configPath = path.resolve(process.env.CONFIG_PATH, 'config.ovpn');
-                fs.writeFileSync(configPath, body);
+                //fs.writeFileSync(configPath, body);
                 resolve(configPath);
-            });*/
-            
-            fetch('${GENCONFIG_ENDPOINT}', {
-                  method: 'POST',
-                  headers: {
-                    'Accept': 'application/text',
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    os: '${platform}',
-                    action: 'download',
-                    
-                  })
-                })
-                .then((response) => {
-                   let configPath = path.resolve(process.env.CONFIG_PATH, 'config.ovpn');
-                    fs.writeFileSync(configPath, response);
-                    resolve(configPath);
-                })
-                .then((responseData) => { // responseData = undefined
-                    console.log(responseData);
-                })
-              .catch(function(err) {
-                  console.log(err);
-              });
+            });
 
         });
     },
