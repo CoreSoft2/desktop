@@ -1,8 +1,8 @@
 #!/bin/sh
 #touch  ~/from-pkg-installer
 
-LOGFILE=~/Library/Logs/VPN.ht/installer.log
-PATH_DIR_VPNHT_APP='/Applications/VPN.ht.app'
+LOGFILE=~/Library/Logs/PivotSecurity/installer.log
+PATH_DIR_PIVOTSECURITY_APP='/Applications/PivotSecurity.app'
 
 source ./shared/common
 
@@ -26,7 +26,7 @@ function permissions_set_vpnclients
 	log_text "Setting permissions on VpnClient binaries..."
 	current_directory_print
 
-	DIR_VPN_CLIENTS='/Applications/VPN.ht.app/Contents/Resources/bin'
+	DIR_VPN_CLIENTS='/Applications/PivotSecurity.app/Contents/Resources/bin'
 
 	if [ ! -d "$DIR_VPN_CLIENTS" ]; then
 		log_text "Directory \"$DIR_VPN_CLIENTS\" does not exist"
@@ -71,7 +71,7 @@ function permissions_set_applications
 	log_text "Setting permissions on helper application binaries..."
 	current_directory_print
 
-	DIR_APPLICATIONS='/Applications/VPN.ht.app/Contents/Frameworks/'
+	DIR_APPLICATIONS='/Applications/PivotSecurity.app/Contents/Frameworks/'
 
 	if [ ! -d "$DIR_APPLICATIONS" ]; then
 		log_text "Directory \"$DIR_APPLICATIONS\" does not exist"
@@ -86,25 +86,25 @@ function permissions_set_applications
 	log_command "ls -la"
 	bin_path=.
 
-	VPNHTHELPER_NAME="VPN.ht Helper.app"
+	PIVOTSECURITYHELPER_NAME="PivotSecurity Helper.app"
 
-	PATH_VPNHTHELPER="$bin_path/$VPNHTHELPER_NAME"
+	PATH_PIVOTSECURITYHELPER="$bin_path/$PIVOTSECURITYHELPER_NAME"
 
-	if [ -d "$PATH_VPNHTHELPER" ]; then
-		VPNHTHELPER_NAME="VPN.ht\ Helper.app"
-		PATH_VPNHTHELPER="$bin_path/$VPNHTHELPER_NAME"
-		log_text "VPN.ht Helper.APP details: "
-		log_command "ls -la $PATH_VPNHTHELPER"
-		log_text "Setting root:admin as VPNHTHelper.APP owner..."
-		sudo chown -R root:admin "$PATH_VPNHTHELPER"
-		log_text "Setting execute permissions for VPNHTHelper.APP..."
-		sudo chmod -R a+x "$PATH_VPNHTHELPER"
-		log_text "Setting setuid on VPNHTHelper.APP..."
-		sudo chmod -R u+s "$PATH_VPNHTHELPER"
-		log_text "VPNHTHelper.APP details: "
-		log_command "ls -la $PATH_VPNHTHELPER"
+	if [ -d "$PATH_PIVOTSECURITYHELPER" ]; then
+		PIVOTSECURITYHELPER_NAME="PivotSecurity\ Helper.app"
+		PATH_PIVOTSECURITYHELPER="$bin_path/$PIVOTSECURITYHELPER_NAME"
+		log_text "PivotSecurity Helper.APP details: "
+		log_command "ls -la $PATH_PIVOTSECURITYHELPER"
+		log_text "Setting root:admin as PivotSecurityHelper.APP owner..."
+		sudo chown -R root:admin "$PATH_PIVOTSECURITYHELPER"
+		log_text "Setting execute permissions for PivotSecurityHelper.APP..."
+		sudo chmod -R a+x "$PATH_PIVOTSECURITYHELPER"
+		log_text "Setting setuid on PivotSecurityHelper.APP..."
+		sudo chmod -R u+s "$PATH_PIVOTSECURITYHELPER"
+		log_text "PivotSecurityHelper.APP details: "
+		log_command "ls -la $PATH_PIVOTSECURITYHELPER"
 	else
-		log_text "WARNING: Directory not found: \"$PATH_VPNHTHELPER\""
+		log_text "WARNING: Directory not found: \"$PATH_PIVOTSECURITYHELPER\""
 		exit 2
 	fi
 }
@@ -114,7 +114,7 @@ function permissions_set_scripts
 	log_text "Setting permissions on up/down script..."
 	current_directory_print
 
-	SCRIPTS_PATH='/Applications/VPN.ht.app/Contents/Resources/bin/'
+	SCRIPTS_PATH='/Applications/PivotSecurity.app/Contents/Resources/bin/'
 
 	if [ ! -d "$SCRIPTS_PATH" ]; then
 		log_text "Directory \"$SCRIPTS_PATH\" does not exist"
@@ -156,8 +156,8 @@ log_text "==================="
 log_text "=== postinstall ==="
 log_text "==================="
 
-log_text "Setting wheel group on VPN.ht whole application..."
-sudo chown -R root:wheel "$PATH_DIR_VPNHT_APP"
+log_text "Setting wheel group on PivotSecurity whole application..."
+sudo chown -R root:wheel "$PATH_DIR_PIVOTSECURITY_APP"
 
 permissions_set_vpnclients
 permissions_set_applications

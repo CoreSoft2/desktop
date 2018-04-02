@@ -56,7 +56,7 @@ Section
   RMDir /r $INSTDIR
   SetOutPath $INSTDIR
 
-  File /r "../../dist\VPN.ht-win32-ia32\*"
+  File /r "../../dist\PivotSecurity-win32-ia32\*"
 
   WriteUninstaller "$INSTDIR\Uninstall ${APP_NAME}.exe"
 
@@ -120,8 +120,8 @@ Section
   AccessControl::GrantOnFile "$INSTDIR\resources\log" "(S-1-5-32-545)" "FullAccess"
 
   Sleep 3000
-  DetailPrint "Make sure firewall allow VPN.ht"
-  nsisFirewall::AddAuthorizedApplication "$INSTDIR\VPN.ht.exe" "VPN.ht"
+  DetailPrint "Make sure firewall allow PivotSecurity"
+  nsisFirewall::AddAuthorizedApplication "$INSTDIR\PivotSecurity.exe" "PivotSecurity"
 
 SectionEnd
 
@@ -141,6 +141,6 @@ Section "Uninstall"
 
   DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}"
 
-  nsisFirewall::RemoveAuthorizedApplication "$INSTDIR\VPN.ht.exe"
+  nsisFirewall::RemoveAuthorizedApplication "$INSTDIR\PivotSecurity.exe"
 
 SectionEnd

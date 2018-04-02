@@ -1,4 +1,4 @@
 #!/bin/bash
 
-rm -rf ~/Library/Application\ Support/VPN.ht/
-rm -rf ~/VPN.ht
+rm -rf ~/Library/Application\ Support/PivotSecurity/
+rm -rf ~/PivotSecurity

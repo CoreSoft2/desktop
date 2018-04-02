@@ -3,7 +3,7 @@
 # When this script is executed, all messages printed with echo command directly
 # appear in the Terminal and in /var/log/install.log
 
-PATH_DIR_LOG=~/'Library/Logs/VPN.ht'
+PATH_DIR_LOG=~/'Library/Logs/PivotSecurity'
 LOGFILE="$PATH_DIR_LOG/installer.log"
 
 LOGIN_USER=`ls -l /dev/console | awk '{ print $3 }'`
