@@ -1,19 +1,19 @@
 #!/bin/bash
 CURRENTDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 ROOTDIR="${CURRENTDIR}/../../"
-BUILD_DIR="${ROOTDIR}/dist/VPN.ht-darwin-x64/"
+BUILD_DIR="${ROOTDIR}/dist/PivotSecurity-darwin-x64/"
 BASE_DIR="${ROOTDIR}/dist"
 PKG_DIR="${ROOTDIR}/util/mac/pkg"
 VERSION="0.0.1"
-IDENTIFIER="ht.vpn.desktop"
-APPNAME="VPN.ht"
+IDENTIFIER="com.pivot.secrity.desktop"
+APPNAME="PivotSecurity"
 
 rm -rf "$BASE_DIR/darwin"
 mkdir -p "$BASE_DIR/darwin/flat/Resources/en.lproj"
 mkdir -p "$BASE_DIR/darwin/flat/base.pkg"
 mkdir -p "$BASE_DIR/darwin/scripts"
 mkdir -p "$BASE_DIR/darwin/root/Applications"
-cp -R $BUILD_DIR/VPN.ht.app $BASE_DIR/darwin/root/Applications
+cp -R $BUILD_DIR/PivotSecurity.app $BASE_DIR/darwin/root/Applications
 cp -R $PKG_DIR/* $BASE_DIR/darwin/scripts
 NUM_FILES=$(find ${BASE_DIR}/darwin/root | wc -l)
 INSTALL_KB_SIZE=$(du -k -s ${BASE_DIR}/darwin/root | awk '{print $1}')
@@ -22,7 +22,7 @@ cat <<EOF > ${BASE_DIR}/darwin/flat/base.pkg/PackageInfo
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <pkg-info overwrite-permissions="true" relocatable="false" identifier="${IDENTIFIER}" postinstall-action="none" version="${VERSION}" format-version="2" generator-version="InstallCmds-502 (14C109)" auth="root" preserve-xattr="true">
     <payload numberOfFiles="${NUM_FILES}" installKBytes="${INSTALL_KB_SIZE}"/>
-    <bundle path="./VPN.ht.app" id="${IDENTIFIER}" CFBundleShortVersionString="${VERSION}" CFBundleVersion="0"/>
+    <bundle path="./PivotSecurity.app" id="${IDENTIFIER}" CFBundleShortVersionString="${VERSION}" CFBundleVersion="0"/>
     <bundle-version>
         <bundle id="${IDENTIFIER}"/>
     </bundle-version>
@@ -49,14 +49,14 @@ cat <<EOF > ${BASE_DIR}/darwin/flat/Distribution
 <installer-gui-script minSpecVersion="2">
     <pkg-ref id="${IDENTIFIER}">
         <bundle-version>
-            <bundle CFBundleShortVersionString="${VERSION}" CFBundleVersion="0" id="${IDENTIFIER}" path="VPN.ht.app"/>
+            <bundle CFBundleShortVersionString="${VERSION}" CFBundleVersion="0" id="${IDENTIFIER}" path="PivotSecurity.app"/>
         </bundle-version>
     	<must-close>
             <app id="${IDENTIFIER}"/>
     	</must-close>
     </pkg-ref>
     <product id="${IDENTIFIER}" version="${VERSION}"/>
-    <title>VPN.ht</title>
+    <title>PivotSecurity</title>
     <options customize="never" require-scripts="false" hostArchitectures="i386"/>
     <volume-check>
         <allowed-os-versions>
@@ -68,8 +68,8 @@ cat <<EOF > ${BASE_DIR}/darwin/flat/Distribution
             <line choice="${IDENTIFIER}"/>
         </line>
     </choices-outline>
-    <choice id="default" title="VPN.ht" versStr="${VERSION}"/>
-    <choice id="${IDENTIFIER}" title="VPN.ht" visible="false">
+    <choice id="default" title="PivotSecurity" versStr="${VERSION}"/>
+    <choice id="${IDENTIFIER}" title="PivotSecurity" visible="false">
         <pkg-ref id="${IDENTIFIER}.base.pkg"/>
     </choice>
     <pkg-ref id="${IDENTIFIER}.base.pkg" version="${VERSION}" onConclusion="none" installKBytes="${INSTALL_KB_SIZE}">#base.pkg</pkg-ref>

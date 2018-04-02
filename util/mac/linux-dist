@@ -4,7 +4,7 @@ BUILD_DIR="${ROOTDIR}/dist/VPN.ht-darwin-x64/"
 BASE_DIR="${ROOTDIR}/dist"
 PKG_DIR="${ROOTDIR}/util/mac/pkg"
 VERSION=$(sed -n 's|\s*\"version\"\:\ \"\(.*\)\"\,|\1|p' ${ROOTDIR}/package.json)
-IDENTIFIER="ht.vpn.desktop"
+IDENTIFIER="com.pivot.security.desktop"
 APPNAME="VPN.ht"
 
 rm -rf "$BASE_DIR/darwin"
@@ -21,7 +21,7 @@ cat <<EOF > ${BASE_DIR}/darwin/flat/base.pkg/PackageInfo
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <pkg-info overwrite-permissions="true" relocatable="false" identifier="${IDENTIFIER}" postinstall-action="none" version="${VERSION}" format-version="2" generator-version="InstallCmds-502 (14C109)" auth="root" preserve-xattr="true">
     <payload numberOfFiles="${NUM_FILES}" installKBytes="${INSTALL_KB_SIZE}"/>
-    <bundle path="./VPN.ht.app" id="${IDENTIFIER}" CFBundleShortVersionString="${VERSION}" CFBundleVersion="0"/>
+    <bundle path="./PivotSecurity.app" id="${IDENTIFIER}" CFBundleShortVersionString="${VERSION}" CFBundleVersion="0"/>
     <bundle-version>
         <bundle id="${IDENTIFIER}"/>
     </bundle-version>
