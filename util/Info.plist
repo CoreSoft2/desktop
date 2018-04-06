@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Pivot Security</string>
 	<key>CFBundleExecutable</key>
-	<string>Atom</string>
+	<string>PivotSecurity</string>
 	<key>CFBundleIconFile</key>
 	<string>atom.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Pivot Security</string>
+	<string>PivotSecurity</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleVersion</key>
@@ -31,7 +31,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>pivotsecurity</string>
+				<string>PivotSecurity</string>
 			</array>
 			<key>CFBundleURLName</key>
 			<string>OpenVPN App Protocol</string>
