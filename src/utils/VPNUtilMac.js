@@ -15,6 +15,7 @@ module.exports = {
             '--script-security', '2',
             '--up', path.join(resources.resourceDir(), 'script.up.launch'),
             '--down', path.join(resources.resourceDir(), 'script.down.launch'),
+            '--management', '127.0.0.1', '1337',
             '--daemon'
         ]);
     },

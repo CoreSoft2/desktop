@@ -58,6 +58,7 @@ module.exports = assign(currentOSLib, {
                 let configPath = path.resolve(process.env.CONFIG_PATH, 'config.ovpn');
                 //fs.writeFileSync(configPath, body);
                 resolve(configPath);
+                console.log('Getting config .....');
             });
 
         });
@@ -91,8 +92,6 @@ module.exports = assign(currentOSLib, {
 
             openvpn.on('state-change', function(state) {
                 if (state[1] == 'CONNECTED') {
-
-
                     // update IP
                     vpnActions.checkIp();
 
@@ -127,7 +126,6 @@ module.exports = assign(currentOSLib, {
 
             // error from the openvpn logs
             openvpn.on('error', function(error) {
-                alert(error);
                 openvpnmanager.destroy();
                 openvpn.removeAllListeners();
                 vpnActions.disconnected();
@@ -160,7 +158,7 @@ module.exports = assign(currentOSLib, {
         _args = args; // don't remove
 
         log.info("\n\n----------------------\nConnecting to " + args.server.value + "\n");
-
+      
         return helpers.checkRunning()
             .then(this.stopProcess)
             .then(helpers.managementPort)

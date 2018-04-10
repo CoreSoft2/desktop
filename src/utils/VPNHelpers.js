@@ -33,7 +33,6 @@ module.exports = {
 
             openvpn = openvpnmanager.connectAndKill(opts);
 
-            // we wait the connection to close
             openvpn.on('state-change', function(state) {
                 if (state && state[2] == 'exit-with-notification') {
                     openvpnmanager.destroy();
