@@ -8,6 +8,7 @@ import trayTemplate from './app-tray'
 import Updater from 'autoupdater'
 import yargs from 'yargs';
 import util from './utils/Util';
+import getPort from 'get-port';
 
 let args = yargs(process.argv.slice(1)).wrap(100).argv;
 
@@ -56,6 +57,9 @@ app.on('ready', function() {
         windowSize.height = 600;
     }
 
+	getPort().then(port => {
+            fs.writeFileSync(path.join(util.supportDir(), 'openvpn.port'), port);
+    });
     var mainWindow = new BrowserWindow({
         width: windowSize.width,
         height: windowSize.height,

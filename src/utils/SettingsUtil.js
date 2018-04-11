@@ -1,12 +1,12 @@
 import log from '../stores/LogStore';
 
 var defaultSettings = {
-    launchStartup: false,
+    launchStartup: true,
     launchStartupHidden: true,
-    connectLaunch: false,
-    saveCredentials: false,
+    connectLaunch: true,
+    saveCredentials: true,
     disableSmartdns: false,
-    autoPath: true,
+    autoPath: false,
     minToTaskbar: true
 };
 

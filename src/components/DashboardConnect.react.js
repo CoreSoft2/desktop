@@ -146,7 +146,7 @@ var DashboardConnect = React.createClass({
             <div>
 
                 <section>
-                    <h1 className="title">{t('VPN connection status')}</h1>
+                    <h1 className="title">{t('VPN Connection status')}</h1>
                     <div className="connectionstatus">
                         <i className={this.state.connecting ? 'ion-ios-loop spin' : 'ion-ios-close-empty disconnected'}></i>
                         <p>{currentStatus}</p>

@@ -1,7 +1,6 @@
 import fs from 'fs';
 import log from '../stores/LogStore';
 import vpnActions from '../actions/VPNActions';
-import getPort from 'get-port';
 import myip from './MyipUtil';
 import openvpnmanager from 'node-openvpn';
 import util from './Util';
@@ -13,10 +12,7 @@ var openvpn;
 module.exports = {
 
     managementPort: function() {
-        return getPort().then(port => {
-            fs.writeFileSync(path.join(util.supportDir(), 'openvpn.port'), port);
-            return port;
-        });
+        return fs.readFileSync(path.join(util.supportDir(), 'openvpn.port'));
     },
 
     softKill: function(port) {

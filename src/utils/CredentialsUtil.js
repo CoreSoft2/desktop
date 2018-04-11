@@ -3,8 +3,8 @@ import log from '../stores/LogStore';
 
 var CredentialsUtil = {
 
-    username: function() {
-        return localStorage.getItem('auth.username') || null;
+    deviceid: function() {
+        return localStorage.getItem('auth.deviceid') || null;
     },
 
     get: function() {

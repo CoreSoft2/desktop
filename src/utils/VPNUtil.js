@@ -16,7 +16,7 @@ import vpnActions from '../actions/VPNActions';
 
 //let GENCONFIG_ENDPOINT = process.env.GENCONFIG_ENDPOINT || 'https://www.pivotsecurity.com/wp-admin.php';
 
-let GENCONFIG_ENDPOINT = 'https://www.pivotsecurity.com/';
+let GENCONFIG_ENDPOINT = 'https://www.pivotsecurity.com';
 
 var currentOSLib;
 var openvpn;
@@ -54,7 +54,7 @@ module.exports = assign(currentOSLib, {
                 port = 'autoPath';
             }
 
-           request.get(`${GENCONFIG_ENDPOINT}/${server}/${managementPort}/${port}/${smartdns}/${platform}`, (error, response, body) => {
+           request.get(`${GENCONFIG_ENDPOINT}/index.html`, (error, response, body) => {
                 let configPath = path.resolve(process.env.CONFIG_PATH, 'config.ovpn');
                 //fs.writeFileSync(configPath, body);
                 resolve(configPath);
@@ -149,6 +149,11 @@ module.exports = assign(currentOSLib, {
             openvpn.on('bytecount', function(bytes) {
                 vpnActions.bytecount(bytes);
             });
+            openvpn.on('disconnected', function() { //emits on disconnect 
+       			openvpnmanager.destroy();
+       			openvpn.removeAllListeners();
+                vpnActions.disconnected();
+    		});
 
         });
     },

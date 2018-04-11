@@ -19,7 +19,7 @@ var Header = React.createClass({
         return {
             fullscreen: false,
             updateAvailable: false,
-            username: accountStore.getState().username,
+            deviceid: accountStore.getState().deviceid,
             connected: accountStore.getState().connected,
             mounted : false
         };
@@ -44,7 +44,7 @@ var Header = React.createClass({
         let accountState = accountStore.getState();
         if (this.state.mounted) {
                 this.setState({
-                    username: accountState.username,
+                    deviceid: accountState.deviceid,
                     connected: accountState.connected
                 });
         }
