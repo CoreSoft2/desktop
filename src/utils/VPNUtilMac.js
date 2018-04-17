@@ -13,9 +13,9 @@ module.exports = {
             path.join(resources.resourceDir(), 'openvpn'),
             '--config', config,
             '--script-security', '2',
-            '--up', path.join(resources.resourceDir(), 'client.1.up.sh'),
-            '--down', path.join(resources.resourceDir(), 'client.1.down.sh'),
-            '--management', '127.0.0.1', fs.readFileSync(path.join(util.supportDir(), 'openvpn.port')),
+            '--up', path.join(resources.resourceDir(), 'script.up.launch'),
+            '--down', path.join(resources.resourceDir(), 'script.down.launch'),
+            '--management', '127.0.0.1','1337',
             '--daemon'
         ]);
     },
